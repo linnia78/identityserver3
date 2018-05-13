@@ -1,0 +1,20 @@
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+
+Copy the SSH key to your clipboard.
+
+If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+
+clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+Tip: If clip isn't working, you can locate the hidden .ssh folder, open the file in your favorite text editor, and copy it to your clipboard.
+
+Settings icon in the user barIn the upper-right corner of any page, click your profile photo, then click Settings.
+
+Authentication keysIn the user settings sidebar, click SSH and GPG keys.
+
+SSH Key buttonClick New SSH key or Add SSH key.
+
+In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+The key fieldPaste your key into the "Key" field.
+The Add key buttonClick Add SSH key.
+Sudo mode dialogIf prompted, confirm your GitHub password.

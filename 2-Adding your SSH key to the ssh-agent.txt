@@ -1,0 +1,16 @@
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key.
+If you have GitHub Desktop installed, you can use it to clone repositories and not deal with SSH keys. It also comes with the Git Bash tool, which is the preferred way of running git commands on Windows.
+
+Ensure the ssh-agent is running:
+
+If you are using the Git Shell that's installed with GitHub Desktop, the ssh-agent should be running.
+If you are using another terminal prompt, such as Git for Windows, you can use the "Auto-launching the ssh-agent" instructions in "Working with SSH key passphrases", or start it manually:
+# start the ssh-agent in the background
+eval $(ssh-agent -s)
+Agent pid 59566
+Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+
+ssh-add ~/.ssh/id_rsa
+Add the SSH key to your GitHub account.
