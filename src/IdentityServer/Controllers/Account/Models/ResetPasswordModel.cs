@@ -2,7 +2,7 @@
 
 namespace IdentityServer.Controllers.Account
 {
-    public class ResetPasswordViewModel
+    public class ResetPasswordModel
     {
         [Required]
         [EmailAddress]

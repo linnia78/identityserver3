@@ -44,7 +44,7 @@ namespace IdentityServer.AspIdentity
         public UserManager(UserStore store)
             : base(store)
         {
-            // Link to IdentityServer2 Claims Factory
+            // Link to IdentityServer3 Claims Factory
             this.ClaimsIdentityFactory = new ClaimsFactory();
 
 
@@ -56,14 +56,14 @@ namespace IdentityServer.AspIdentity
             };
 
             // Configure validation logic for passwords
-            this.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
-            };
+            //this.PasswordValidator = new PasswordValidator
+            //{
+            //    RequiredLength = 6,
+            //    RequireNonLetterOrDigit = true,
+            //    RequireDigit = true,
+            //    RequireLowercase = true,
+            //    RequireUppercase = true,
+            //};
 
             //// Configure user lockout defaults
             //manager.UserLockoutEnabledByDefault = true;
@@ -88,7 +88,10 @@ namespace IdentityServer.AspIdentity
             if (dataProtectionProvider != null)
             {
                 this.UserTokenProvider =
-                    new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"))
+                    {
+                        //TokenLifespan = new TimeSpan(0, 1, 0)
+                    };
             }
         }
     }

@@ -61,7 +61,13 @@ namespace IdentityServer
                             {
                                 Type = "createaccount",
                                 Text = "Create a new account",
-                                Href = "~/accountcreate"
+                                Href = "~/account"
+                            },
+                            new LoginPageLink()
+                            {
+                                Type = "forgotpassword",
+                                Text = "Forgot password",
+                                Href = "~/account/forgotpassword"
                             }
                         }
                     }
