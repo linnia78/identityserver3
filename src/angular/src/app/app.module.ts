@@ -14,7 +14,12 @@ import { RouterModule, Routes } from '@angular/router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+          allowedUrls: ['https://localhost:44383/api'],
+          sendAccessToken: true
+      }
+    })
   ],
   providers: [
   ],

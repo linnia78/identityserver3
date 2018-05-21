@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription ,  Observable } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 
 import { OAuthService } from 'angular-oauth2-oidc';
@@ -26,13 +25,18 @@ export class AppComponent {
 
   private configureWithNewConfigApi() {
     this.oauthService.configure(authConfig);
+    this.oauthService.setStorage(localStorage);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
     this.oauthService.setupAutomaticSilentRefresh();
   }
 
   ngOnInit() {
-
+    this.oauthService.tryLogin({
+        onTokenReceived: (info) => {
+            console.debug('state', info.state);
+        }
+    });
   }
 
   ngOnDestroy(): void {
@@ -56,13 +60,14 @@ export class AppComponent {
 
   getApi() {
     this.httpClient
-      .get("https://localhost:44383/api/WebApiResrouce", {
-        headers: new HttpHeaders(
-          {
-            'Authorization': 'Bearer ' + this.oauthService.getAccessToken()
-          }
-        )
-      })
+      // .get("https://localhost:44383/api/WebApiResrouce", {
+      //   headers: new HttpHeaders(
+      //     {
+      //       'Authorization': 'Bearer ' + this.oauthService.getAccessToken()
+      //     }
+      //   )
+      // })
+      .get("https://localhost:44383/api/WebApiResrouce")
       .subscribe(data => this.apiResponse = data, error => this.apiResponse = {});
       
   }

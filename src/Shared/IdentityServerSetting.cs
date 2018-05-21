@@ -25,6 +25,11 @@ namespace Shared
         public const string ANGULAR_CLIENT_POST_REDIRECT_URI = "https://localhost:4200/";
         public const string ANGULAR_CLIENT_SILENT_REFRESH_REDIRECT_URI = "https://localhost:4200/silent-refresh.html";
 
+        public const string WEBFORM_CLIENT_ID = "webform";
+        public const string WEBFORM_CLIENT_SECRET = "secrte";
+        public const string WEBFORM_REDIRECT_URI = "https://localhost:44346/";
+        public const string WEBFORM_POST_REDIRECT_URI = "https://localhost:44346/";
+
         public const string IDENTITY_SERVER_CONNECTION_STRING = "IdentityServerConnectionString";
     }
 }

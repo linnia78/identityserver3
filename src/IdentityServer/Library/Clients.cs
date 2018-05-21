@@ -90,7 +90,39 @@ namespace IdentityServer.Library
                         "api", //to allow access to the webapi
                         "vendor"
                     }
-                }
+                },
+                new Client
+                {
+                    Enabled = true,
+                    ClientName = "Webform Client",
+                    ClientId = IdentityServerSetting.WEBFORM_CLIENT_ID,
+                    Flow = Flows.Hybrid,
+
+                    RedirectUris = new List<string>
+                    {
+                        IdentityServerSetting.WEBFORM_REDIRECT_URI
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        IdentityServerSetting.WEBFORM_POST_REDIRECT_URI
+                    },
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret(IdentityServerSetting.WEBFORM_CLIENT_SECRET.Sha256())
+                    },
+                    IdentityTokenLifetime = 10, //default 300
+                    AccessTokenLifetime = 60, //default 3600
+                    RequireConsent = false,
+                    AllowedScopes = new List<string>
+                    {
+                        "openid",
+                        "profile",
+                        "roles",
+                        "api", //to allow access to the webapi
+                        "offline_access", //refresh_tokens
+                        "vendor"
+                    }
+                },
             };
         }
     }
