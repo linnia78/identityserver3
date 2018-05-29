@@ -40,7 +40,7 @@ namespace IdentityServer.Library
                         "openid",
                         "profile",
                         "roles",
-                        "api", //to allow access to the webapi
+                        "siteApi", //to allow access to the webapi
                         "offline_access", //refresh_tokens
                         "vendor"
                     }
@@ -55,9 +55,13 @@ namespace IdentityServer.Library
                     {
                         new Secret(IdentityServerSetting.WEB_API_CLIENT_SECRET.Sha256())
                     },
+                    Claims = new List<System.Security.Claims.Claim>
+                    {
+                        new System.Security.Claims.Claim("siteApi", "cc")
+                    },
                     AllowedScopes = new List<string>
                     {
-                        "api"
+                        "siteApi"
                     }
                 },
                 new Client
@@ -87,7 +91,7 @@ namespace IdentityServer.Library
                         "openid",
                         "profile",
                         "roles",
-                        "api", //to allow access to the webapi
+                        "siteApi", //to allow access to the webapi
                         "vendor"
                     }
                 },
@@ -118,9 +122,10 @@ namespace IdentityServer.Library
                         "openid",
                         "profile",
                         "roles",
-                        "api", //to allow access to the webapi
+                        //"siteApi", //to allow access to the webapi
                         "offline_access", //refresh_tokens
-                        "vendor"
+                        "vendor",
+                        "siteWebforms"
                     }
                 },
             };

@@ -50,7 +50,7 @@ namespace Webforms
                 RedirectUri = IdentityServerSetting.WEBFORM_REDIRECT_URI,
                 ResponseType = "code id_token token",
                 PostLogoutRedirectUri = IdentityServerSetting.WEBFORM_POST_REDIRECT_URI,
-                Scope = "openid profile roles api offline_access vendor", //api scope requested to access webapi
+                Scope = "openid profile roles siteWebforms offline_access vendor", //siteWebforms scope requested to access this webforms
                 SignInAsAuthenticationType = "Cookies",
                 UseTokenLifetime = false, //use lifetime of authentication ticket instead of checking expiration on id_token
 

@@ -26,12 +26,13 @@ namespace IdentityServer.Library
                 {
                     Enabled = true,
                     DisplayName = "Web Api",
-                    Name = "api",
+                    Name = "siteApi",
                     Description = "Access to web api",
                     Type = ScopeType.Resource,
                     Claims = new List<ScopeClaim>
                     {
-                        new ScopeClaim("role")
+                        new ScopeClaim("role"),
+                        new ScopeClaim("siteApi")
                     }
                 },
                 new Scope
@@ -44,6 +45,18 @@ namespace IdentityServer.Library
                     Claims = new List<ScopeClaim>
                     {
                         new ScopeClaim("vendorid")
+                    }
+                },
+                new Scope
+                {
+                    Enabled = true,
+                    DisplayName = "Site Abc WebForms Scope",
+                    Name = "siteWebforms",
+                    Type = ScopeType.Resource,
+                    Claims = new List<ScopeClaim>
+                    {
+                        new ScopeClaim("userid"),
+                        new ScopeClaim("siteWebforms")
                     }
                 }
             };

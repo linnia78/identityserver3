@@ -2,6 +2,7 @@
 using Owin;
 using Shared;
 using System.Web.Http;
+using WebApiResource.Library;
 
 namespace WebApiResource
 {
@@ -18,8 +19,10 @@ namespace WebApiResource
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
             {
                 Authority = IdentityServerSetting.BASE_IDENTITY_SERVER_URL,
-                RequiredScopes = new[] { "api" }
+                RequiredScopes = new[] { "siteApi" }
             });
+
+            app.UseResourceAuthorization(new AuthorizationManager());
 
             // web api configuration
             var config = new HttpConfiguration();

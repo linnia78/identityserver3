@@ -55,7 +55,7 @@ namespace MvcClient
                 RedirectUri = IdentityServerSetting.MVC_CLIENT_REDIRECT_URI,
                 ResponseType = "code id_token token",
                 PostLogoutRedirectUri = IdentityServerSetting.MVC_CLIENT_POST_REDIRECT_URI,
-                Scope = "openid profile roles api offline_access vendor", //api scope requested to access webapi
+                Scope = "openid profile roles siteApi offline_access vendor", //api scope requested to access webapi
                 SignInAsAuthenticationType = "Cookies",
                 UseTokenLifetime = false, //use lifetime of authentication ticket instead of checking expiration on id_token
 

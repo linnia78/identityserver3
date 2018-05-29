@@ -29,7 +29,7 @@ namespace MvcClient.Controllers
                 IdentityServerSetting.WEB_API_CLIENT_ID,
                 IdentityServerSetting.WEB_API_CLIENT_SECRET);
 
-            return await client.RequestClientCredentialsAsync("api");
+            return await client.RequestClientCredentialsAsync("siteApi");
         }
 
         //call webapi on behalf of the mvcclient
